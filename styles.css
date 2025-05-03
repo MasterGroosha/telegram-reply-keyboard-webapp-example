@@ -15,6 +15,7 @@ body {
     width: 100%;
     max-width: 500px;
     text-align: center;
+    position: relative;
 }
 
 .number-display {
@@ -52,17 +53,31 @@ body {
     max-width: 300px;
     margin: 0 auto;
     transition: opacity 0.2s;
+    position: relative; /* Add position relative to the button */
 }
 
 .button:active {
     opacity: 0.8;
 }
 
+.button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: var(--tg-theme-button-color, #2ea6ff);
+    filter: grayscale(40%);
+}
+
 .notification {
-    margin-top: 20px;
     padding: 10px;
     border-radius: 8px;
     background-color: var(--tg-theme-secondary-bg-color, #2c2c2c);
     color: var(--tg-theme-hint-color, #aaaaaa);
     display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 300px;
+    top: calc(100% + 20px); /* Position below the button with 20px gap */
+    box-sizing: border-box;
 }
